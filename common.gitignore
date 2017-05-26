@@ -33,3 +33,8 @@ print salidaAA;
 select * from UMGROUP where group_id in(
 select group_id from GROUPUSERROLE where user_id in 
 (select user_id from UMUSER where user_name like'%70168582%'))
+
+Oracle - insert multiple value using stored procedure used for IN Condition.
+Code - INSTR(',' || AUDITR || ',', ',' || AUDITOR || '') > 0
+Explanation  - In above code AUDITR will be your in parameter which is comma seperated like - abc,xyz.
+and AUDIOR will table coulmn in which you want to check IN condition.
