@@ -1,0 +1,35 @@
+get user id from Employee_Master-
+1. Login In arcos with parshuram credentials-
+
+ Parshuram Domain Credential: 70177492 /pass$123:
+
+then go to 10.65.5.127 - Username:savvionapp
+Password:sav$123 -  connect database- databases-savvionDB- select savvionDB and createn new query - select * from Employee_Master where Employee_Name like 'Employee Name%'.
+then capture Employee_code.
+
+
+private static final String TREE_DATASOURCE = "jdbc/CustomDB";
+
+private static final String TREE_DATASOURCE = "jdbc/SBMCommonDB";
+
+Run stored procedure  -
+
+variable rc refcursor;
+variable rca refcursor;
+exec AGENT_INITIATE_DATA( :rc, :rca );
+print rc;
+print rcA;
+
+Run stored procedure with in and out parameters
+
+variable salida refcursor;
+variable salidaA refcursor;
+variable salidaAA refcursor;
+exec AGENT_OPEN_CLOSE_DTL('10-01-2017', '16-03-2017', 'OPEN', :salida, :salidaA, :salidaAA);
+print salida;
+print salidaA;
+print salidaAA;
+
+select * from UMGROUP where group_id in(
+select group_id from GROUPUSERROLE where user_id in 
+(select user_id from UMUSER where user_name like'%70168582%'))
